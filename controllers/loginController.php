@@ -25,7 +25,7 @@
            $this->loadView('login', $array);
            
         }
-            
+            /*Logout*/ 
         public function logout(){
             unset($_SESSION['lgaluno']);
             header("Location: ".BASE);
@@ -34,6 +34,7 @@
 
         
     }
+
 
 
 
