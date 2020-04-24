@@ -5,7 +5,7 @@
     
     class homeController extends controller{
         public function __construct(){
-            parent::__contruct();
+            parent::__construct();
             $alunos = new Alunos();
 
             if(!$alunos->isLogged()){

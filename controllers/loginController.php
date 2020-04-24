@@ -2,7 +2,7 @@
     
     class loginController extends controller{
         public function __construct(){
-            parent::__contruct();
+            parent::__construct();
 
 
         }
