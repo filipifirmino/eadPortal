@@ -6,8 +6,8 @@
     <title>Login</title>
     <style>
         form{
+            width: 300px;
             height: 300px;
-            margin: 300px;
             background-color: #ddd;
             margin:auto;
             margin-top: 30px;
@@ -17,6 +17,7 @@
         input{
             width: 300px;
             padding: 15px;
+            margin-bottom:10px;
             font-size: 14px;
             border:1px solid #ddd;
         }
