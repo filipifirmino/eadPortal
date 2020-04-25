@@ -40,5 +40,9 @@
             return $this->info['nome'];
         }
 
+        public function getId(){
+            return $this->info['id'];
+        }
+
 }
 ?>

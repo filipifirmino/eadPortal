@@ -8,7 +8,6 @@
 </head>
 <body>
         <div class="topo">
-            
             <a href="<?php echo BASE;?>login/logout">
                 <div>Sair</div>
             </a>

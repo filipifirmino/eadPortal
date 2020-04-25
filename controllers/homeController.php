@@ -15,14 +15,19 @@
         }
         public function index(){
             $dados = array(
-                'info' => array()
+                'info' => array(),
+                'turmas' => array()
 
             );
 
             $alunos = new Alunos();
             $alunos -> setAluno($_SESSION['lgaluno']);
             $dados['info'] = $alunos;
-    
+            
+            $turmas = new Turmas();
+            $dados['turma'] = $turmas->getTurmaDoAluno($alunos->getId()); #pode ser usado para listar disciplinas
+
+
             $this->loadTemplate('home',$dados);
         }
     }
