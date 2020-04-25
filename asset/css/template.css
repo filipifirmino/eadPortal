@@ -25,3 +25,9 @@ body{
  .top a div:hover{
      background-color: #555;
  }
+ .topousuario{
+     float: right;
+     margin-right: 20px;
+     height: 40xp;
+     line-height: 40px;
+ }
