@@ -28,8 +28,8 @@
 <body>
 <form  method="post">
         <h1>Login</h1>
-        <input type="text" name="matricula" id="c_matricula" placeholder="ex: 0001"><br>
-        <input type="password" name="senha" id="c_senha" placeholder="*****"><br>
+        <input type="text" name="matricula" id="c_matricula" placeholder="Matricula" autofocus><br>
+        <input type="password" name="senha" id="c_senha" placeholder="Senha"><br>
         <input type="submit" value="Logar">
     </form>
 </body>
