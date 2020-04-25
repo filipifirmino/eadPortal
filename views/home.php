@@ -1,7 +1,7 @@
 <div class="turmas">
     <h3>Sua turma</h3>
 
-    <?php  foreach($turmas  as $turmas):  ?>
+    <?php  foreach($turmas  as $turma):  ?>
 
     <div class="turmasitem">
         <img src="" border="0" width="100%"/><br><br>
