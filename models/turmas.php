@@ -11,7 +11,7 @@
                 turmas.nome,
                 turmas.imagem
             FROM 
-                aluno_turma 
+                aluno_turma
             LEFT JOIN turmas ON aluno_turma.id_turma = turmas.id
             WHERE 
                 aluno_turma.id_aluno = '$id'
