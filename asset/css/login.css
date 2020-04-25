@@ -1,0 +1,55 @@
+.logo{
+
+    margin: auto;
+    margin-top:15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login{
+    margin: auto;
+    margin-top:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#fff;
+
+
+}
+.login input{
+    margin-top: 15px;;
+}
+p{
+    text-align: center;
+    margin: auto;
+    margin-top:15px;
+    font-size: 10pt;
+    color:#c9c9c9;
+
+}
+p a{
+    text-decoration: none;
+    color: #c9c9c9;
+}
+.btn{
+    width: 190px;
+    border:none;
+    border-radius:20px;
+    padding: 5px;
+    background-color: #ffffff;
+    color: blue;
+    text-align: center;
+    cursor: pointer;
+}
+
+.btn:hover{
+    background-color:#ffd634;;
+    color: #1f277f;
+    border-color:#ffd634;
+    fill: #1f277f;
+    transition: 0.5s;
+}
+
+body{
+    background: radial-gradient(#3a45b0, #2d3691);
+}

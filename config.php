@@ -10,13 +10,13 @@
             $config['dbname'] = "ead_anchieta";
             $config['host'] = 'localhost';
             $config['dbuser'] = 'root';
-            $config['dbpass'] = '';
+            $config['dbpass'] = 'dijital123';
     }else{#produção
 
             $config['dbname'] = 'ead_anchieta';
             $config['host'] = 'localhost';
             $config['dbuser'] = 'root';
-            $config['dbpass'] = '';
+            $config['dbpass'] = 'dijital123';
     }
 
 
