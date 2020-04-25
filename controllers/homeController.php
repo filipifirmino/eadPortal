@@ -14,7 +14,14 @@
             }
         }
         public function index(){
-            $dados = array();
+            $dados = array(
+                'info' => array()
+
+            );
+
+            $alunos = new Alunos();
+            $alunos = setAluno($_SESSION['lgaluno']);
+            $dados['info'] = $alunos;
     
             $this->loadTemplate('home',$dados);
         }
