@@ -20,7 +20,7 @@
             );
 
             $alunos = new Alunos();
-            $alunos = setAluno($_SESSION['lgaluno']);
+            $alunos -> setAluno($_SESSION['lgaluno']);
             $dados['info'] = $alunos;
     
             $this->loadTemplate('home',$dados);

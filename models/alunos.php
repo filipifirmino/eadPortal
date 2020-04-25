@@ -36,11 +36,9 @@
             }
         }
 
-            public function getNome() {
-                return $this->info['nome'];
-            }
+        public function getNome() {
+            return $this->info['nome'];
+        }
 
-    }
-
-
+}
 ?>
