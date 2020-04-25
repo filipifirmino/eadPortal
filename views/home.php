@@ -5,7 +5,7 @@
 
     <div class="turmasitem">
         <img src="" border="0" width="100%"/><br><br>
-        <strong><?php echo $curso['nome'];?></strong><br/><br/>
+        <strong><?php echo $turma['nome'];?></strong><br/><br/>
 
     </div>
 </div>
