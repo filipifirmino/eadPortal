@@ -2,6 +2,7 @@
     require 'core/Controller.php';
     require 'core/Model.php';
     require 'models/alunos.php';
+    require 'models/turmas.php';
     
     class homeController extends controller{
         public function __construct(){
@@ -26,7 +27,7 @@
             
             $turmas = new Turmas();
             $dados['turma'] = $turmas->getTurmaDoAluno($alunos->getId()); #pode ser usado para listar disciplinas
-
+            
 
             $this->loadTemplate('home',$dados);
         }

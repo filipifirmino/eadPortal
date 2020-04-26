@@ -1,3 +1,7 @@
+/*Importações*/
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap');
+
+
 .logo{
 
     margin: auto;
@@ -10,14 +14,19 @@
     margin: auto;
     margin-top:15px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color:#fff;
+    width: 300px;
 
 
 }
 .login input{
-    margin-top: 15px;;
+    margin-top: 15px;
+    padding: 5px;
+    border-radius: 5px;
+    border:none;
 }
 p{
     text-align: center;
@@ -25,7 +34,10 @@ p{
     margin-top:15px;
     font-size: 10pt;
     color:#c9c9c9;
-
+    
+}
+h1{
+    font-family: 'Baloo Tammudu 2', cursive;
 }
 p a{
     text-decoration: none;

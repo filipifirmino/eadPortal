@@ -1,4 +1,7 @@
 <?php
+   require 'core/Controller.php';
+   require 'core/Model.php';
+   require 'models/alunos.php';
    
     class loginController extends controller{
         public function __construct(){

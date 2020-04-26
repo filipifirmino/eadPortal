@@ -1,13 +1,17 @@
+
+
 <div class="turmas">
-    <h3>Sua turma</h3>
-
-    <?php  foreach($turmas  as $turma):  ?>
-
     <div class="turmasitem">
-        <img src="" border="0" width="100%"/><br><br>
-        <strong><?php echo $turma['nome'];?></strong><br/><br/>
+    <?php  foreach($turma as $turmas):  ?>
 
+        <li><a href="<?php echo BASE;?>turmas/entrar/<?php echo $turmas['id_turma'];?>">
+        <img src="<?php echo BASE;?>/asset/image/<?php echo $turmas['imagem'];?>" border="0" width="15px"/>
+        <strong><?php echo $turmas['nome'];?></strong>
+        </a>
+        </li>
+    <?php endforeach;?>
     </div>
 </div>
 
-    <?php endforeach;?>
+    
+   

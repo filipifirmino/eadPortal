@@ -8,11 +8,13 @@
 </head>
 <body>
         <div class="topo">
+            <span class="ead-titulo">EAD - Colégio Anchieta</span>
             <a href="<?php echo BASE;?>login/logout">
-                <div>Sair</div>
+                <div class="btn-sair">Sair</div>
             </a>
             <div class="topousuario"><?php echo $viewData['info']->getNome();?></div><!-- Captura o nome do usuario logado-->
         </div>
+        
         <?php $this->loadViewInTemplate($viewName, $viewData);?>
 </body>
 </html>

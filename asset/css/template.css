@@ -1,6 +1,11 @@
 body{
     margin: 0;
     background-color: #EEE;
+    overflow-y: hidden;
+}
+.ead-titulo{
+    line-height: 40px;
+    margin-left: 10px;
 }
 .topo{
     height: 40px;
@@ -14,20 +19,49 @@ body{
     
  }
 
- .topo a div{
+ .btn-sair{
      float: right;
+     width: 60px;
      height: 40px;
      line-height: 40px;
-     padding-right: 20px;
-     padding-right: 20px;
+     text-align: center;
+
  }
 
- .top a div:hover{
-     background-color: #555;
+ .btn-sair:hover{
+     background-color: rgb(182, 180, 180);
+     color:#333;
+  
  }
  .topousuario{
      float: right;
      margin-right: 20px;
      height: 40xp;
      line-height: 40px;
+ }
+ .turmasitem{
+     width: 150px;
+     
+     height: 100vh;
+     background-color: #2d3691;
+ }
+
+ .turmasitem li {
+     list-style: none;
+     padding: 5px;
+     width: 140px;
+     height: 25px;
+     
+ }
+ 
+ .turmasitem li:hover{
+    background-color: #ffd634;
+    color: #2d3691;
+}
+
+ .turmasitem li a{
+     text-decoration: none;
+     color: #fff;
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
  }
