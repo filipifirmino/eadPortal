@@ -12,6 +12,3 @@
     <?php endforeach;?>
     </div>
 </div>
-
-    
-   

@@ -1,3 +1,5 @@
+/*Importações*/
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap');
 body{
     margin: 0;
     background-color: #EEE;
@@ -9,7 +11,7 @@ body{
 }
 .topo{
     height: 40px;
-    background-color: #333;
+    background-color: #24292e;
     color:#fff;
 }
 
@@ -71,6 +73,7 @@ body{
      background-color: #a7a6a6;
      text-align: center;
      line-height: 60px;
+     font-family: 'Baloo Tammudu 2', cursive;
  }
  .left-aulas{
 

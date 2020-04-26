@@ -19,9 +19,6 @@
         </div>
         
         <?php $this->loadViewInTemplate($viewName, $viewData);?>
-        
-
-        
-        
+       
 </body>
 </html>
