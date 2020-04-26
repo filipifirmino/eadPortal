@@ -1,6 +1,7 @@
 <?php
 
     class Turmas extends model{
+        private $info;
 
         public function getTurmaDoAluno($id){
 
@@ -26,7 +27,26 @@
             
         }
 
-        
+        public function setTurma($id){
+
+            $array = array();
+            $sql = "SELECT * FROM turmas WHERE id = '$id'";
+            $sql = $this->db->query($sql);
+
+            if($sql->rowCount() > 0){
+
+                $this->info = $sql->fetch();
+            }
+           
+        }
+
+        public function getNome(){
+            return $this-> info['nome'];
+        }   
+
+        public function getImage(){
+            return $this->info['imagem'];
+        }
 
 
 

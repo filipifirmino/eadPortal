@@ -65,3 +65,25 @@ body{
      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
  }
+
+ .turmainfo{
+     height: 50px;
+     background-color: #DDD;
+     text-align: center;
+     line-height: 60px;
+ }
+ .left-aulas{
+
+     width: 20%;
+     min-height: 300px;
+    float: left;
+    background-color: #DDD;
+    overflow-y: scroll;
+ }
+ .right-conteudo{
+     width: 80%;
+     min-height: 300px;
+     float: left;
+     background-color: #BBB;
+     overflow-y: scroll;
+ }

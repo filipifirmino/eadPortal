@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - EAD Anchieta</title>
     <link rel="stylesheet" href="<?php echo BASE;?>asset/css/template.css">
+    <script src="<?php echo BASE;?>asset/js/jquery-3.5.0.js"></script>
+    <script src="<?php echo BASE;?>asset/js/script.js"></script>
+   
 </head>
 <body>
         <div class="topo">
@@ -16,5 +19,9 @@
         </div>
         
         <?php $this->loadViewInTemplate($viewName, $viewData);?>
+        
+
+        
+        
 </body>
 </html>

@@ -26,6 +26,20 @@
                 
 
         }
+
+        #verifica se o aluno está matriculado nesta turma
+        public function isInscrito($id_turma){
+            $sql = "SELECT * FROM aluno_turma WHERE id_aluno = '".($this->info['id'])."'AND id_turma = '$id_turma'";
+            $sql = $this->db->query($sql);
+            
+            if($sql->rowCount() > 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+
         #captura o nome do usuario que estará logado
         public function setAluno($id){
             $sql = "SELECT * FROM alunos WHERE id = '$id'";
