@@ -3,6 +3,8 @@
     require 'core/Model.php';
     require 'models/alunos.php';
     require 'models/turmas.php';
+    require 'models/aulas.php';
+    require 'models/disciplinas.php';
 
         class turmasController extends controller{
             public function __construct(){

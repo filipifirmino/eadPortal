@@ -68,22 +68,43 @@ body{
 
  .turmainfo{
      height: 50px;
-     background-color: #DDD;
+     background-color: #a7a6a6;
      text-align: center;
      line-height: 60px;
  }
  .left-aulas{
 
-     width: 20%;
-     min-height: 300px;
+    width: 20%;
+    min-height: 300px;
     float: left;
     background-color: #DDD;
     overflow-y: scroll;
  }
+ .left-aulas a{
+    text-decoration: none;
+    color: #000;
+ }
+.disciplina{
+    height: 30px;
+    line-height: 30px;
+    padding-left: 20px;
+    background-color: #2d3691;
+    color: #fff;
+}
+
  .right-conteudo{
      width: 80%;
      min-height: 300px;
      float: left;
      background-color: #BBB;
      overflow-y: scroll;
+ }
+ .aula{
+     height: 30px;
+     line-height: 30px;
+     padding-left: 30px;
+
+ }
+ .aula:hover{
+     background-color: #AAA;
  }

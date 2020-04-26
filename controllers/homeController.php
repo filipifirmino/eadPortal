@@ -28,6 +28,7 @@
             $turmas = new Turmas();
             $dados['turma'] = $turmas->getTurmaDoAluno($alunos->getId()); #pode ser usado para listar disciplinas
             
+           
 
             $this->loadTemplate('home',$dados);
         }
