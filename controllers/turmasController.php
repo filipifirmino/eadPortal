@@ -44,9 +44,51 @@
                 }
 
                 
-
             }
+            public function aula($id_aula){
+                $dados=array(
+                    'info'=> array(),
+                    'turma'=> array(),
+                    'disciplinas'=> array(),
+                    'aula' => array()
+                );
+                $alunos = new Alunos();
+                $alunos->setAluno($_SESSION['lgaluno']);
+                $dados['info'] = $alunos;
 
+                $aula = new Aulas();
+                $id = $aula->getTurmaDeAula($id_aula);
+                
+                if($alunos->isInscrito($id)){
+                    $turma = new Turmas();
+                    $turma->setTurma($id);
+                    $dados['turmas'] = $turma;
+
+                    $disciplinas = new Disciplinas();
+                    $dados['disciplinas'] = $disciplinas->getDisciplinas($id);
+
+                        $dados['aula_info'] = $aula->getAula($id_aula); #retorna as informações do tipo da aula.
+
+
+                        #identifica o tipo de aula e redireciona para a view adequada.
+                        if($dados['aula_info']['tipo'] == 1){
+                            $view = 'turma_aula_video';
+                        }else{
+                            $view = 'turma_aula_exercicio';
+                        }
+
+                        if(isset($_POST['duvida']) && !empty($_POST['duvida'])){
+                            $duvida = addslashes($_POST['duvida']); #recebe duvida.
+                            
+                            $aula->setDuvida($duvida,$alunos->getId()); #armazena duvida .
+                        }
+                                        
+                    $this->loadTemplate($view, $dados);
+                }else{
+                    header("Location: ".BASE);
+                    
+                }
+            }
         }
 
 
