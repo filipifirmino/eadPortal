@@ -1,0 +1,44 @@
+/*Importações*/
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@500&display=swap');
+body{
+    margin: 0;
+    background-color: #EEE;
+    overflow-y: hidden;
+}
+
+.topo{
+    height: 40px;
+    background-color: #2d3691;
+    color:#fff;
+}
+
+.topo a {
+    color: #fff;
+    text-decoration: none;
+    
+ }
+
+ .btn-sair{
+     float: right;
+     width: 60px;
+     height: 40px;
+     line-height: 40px;
+     text-align: center;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+ }
+
+ .btn-sair:hover{
+     background-color: #FFF;
+     color:#333;
+     font-weight: bold;
+  
+ }
+ .topousuario{
+     float: right;
+     margin-right: 20px;
+     height: 40xp;
+     line-height: 40px;
+     font-family: Verdana, Geneva, Tahoma, sans-serif;
+     font-weight: bold;
+ }
