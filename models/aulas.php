@@ -2,6 +2,13 @@
 
     class Aulas extends model{
 
+        public function marcarAssistido($id){
+            $aluno = $_SESSION['lgaluno'];
+            $sql  = "INSERT INTO historico SET data_viwed = NOW(), id_aluno ='$aluno', id_aula = '$id'";
+            $this->db->query($sql);
+        }
+
+
         public function getAulasDaDisciplina($id){
             $array = array();
             $sql = "SELECT * FROM aulas WHERE id_disciplina = '$id' ORDER BY ordem";
@@ -43,11 +50,16 @@
 
         public function getAula($id_aula) {
             $array = array();
-            $sql = "SELECT tipo FROM aulas WHERE id ='$id_aula'";
-            $sql = $this->db->query($sql);
+            #marcar como visto 
+
+                $id_aluno = $_SESSION['lgaluno'];
+
+                $sql = "SELECT tipo, (select count(*) from historico where historico.id_aula = aulas.id and historico.id_aluno  = '$id_aluno') as assistido FROM aulas WHERE id ='$id_aula'";
+                $sql = $this->db->query($sql);
 
             if($sql->rowCount() > 0){
                 $row = $sql->fetch();
+                
                     #logica: 0 = para atividade e 1 para video.
                 if($row['tipo'] == 1){
 
@@ -62,10 +74,12 @@
                     $sql = "SELECT * FROM exercicios WHERE id_aula = '$id_aula'";
                     $sql = $this->db->query($sql);
 
-                    $array = $sql->fetch();
+                    $array = $sql->fetch(); #alterar para fetchAll -> para capturar todas as perguntas.
                     $array['tipo'] = 0; #retorna para o view a informação do tipo de aula 
 
                 }
+                $array['assistido'] = $row['assistido'];
+
             }
 
             return $array;

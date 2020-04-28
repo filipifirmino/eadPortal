@@ -11,7 +11,7 @@
 </head>
 <body>
         <div class="topo">
-            <span class="ead-titulo">EAD - Colégio Anchieta</span>
+            <a href="<?echo BASE?>"><span class="ead-titulo">EAD - Colégio Anchieta</span></a>
             <a href="<?php echo BASE;?>login/logout">
                 <div class="btn-sair">Sair</div>
             </a>

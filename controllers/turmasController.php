@@ -75,6 +75,11 @@
                             $view = 'turma_aula_video';
                         }else{
                             $view = 'turma_aula_exercicio';
+                            #tentativas
+                            if(!isset($_SESSION['exercicio'.$id_aula])){
+                                $_SESSION['exercicio'.$id_aula] = 1;
+                            }
+                            
                         }
 
                         if(isset($_POST['duvida']) && !empty($_POST['duvida'])){
@@ -82,6 +87,24 @@
                             
                             $aula->setDuvida($duvida,$alunos->getId()); #armazena duvida .
                         }
+
+
+                        if(isset($_POST['op']) && !empty($_POST['op'])) {
+                            $opcao = addslashes($_POST['op']);
+
+                            if($opcao == $dados['aula_info']['resposta']){
+                                $dados['resposta'] = true;
+                            }else{
+                                $dados['resposta'] = false;
+                            }
+                            $_SESSION['exercicio'.$id_aula]++;
+                        }
+
+
+
+
+
+
                                         
                     $this->loadTemplate($view, $dados);
                 }else{

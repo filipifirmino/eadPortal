@@ -21,6 +21,14 @@
     
     <iframe  id="video" width="100%"frameborder="0" src="https://player.vimeo.com/video/<?php echo $aula_info['url_video'];?>"></iframe><br>
 
+       
+        <!--verifica se foi assistido-->
+        
+        <?if($aula_info['assistido'] == '1'):?>
+            <img src="<?echo BASE.'asset/image/ok.svg?>';?>" width="30" height="30" class="ok_aula"alt="Aula já assistida"/> 
+        <?else: ?>
+            <button onclick="marcarAssistido(this)" data-id="<?php echo $aula_info['id'];?>">Marcar como assistido</button>
+        <?endif;?>
     <hr/>
     <h3 class="titulo-duvida">Duvidas? Envie sua pergunta!</h3>
     <form  method="POST" class="form_duvida">

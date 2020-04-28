@@ -15,4 +15,12 @@ function updateArea(){
     $('#video').css('height', video_altura + 'px');
 }
 
+function marcarAssistido(obj){
+    var id  = $(obj).attr('data-id');
+    $(obj).remove();
+    $.ajax({
+        url:'/ead/ajax/marcar_assistido/'+id,
+        type: 'GET'
 
+    });
+}
