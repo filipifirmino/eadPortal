@@ -17,7 +17,7 @@
         }
         public function index(){
             $dados = array(
-
+                'turmas'=>array()
             );
 
                                                                                                                   

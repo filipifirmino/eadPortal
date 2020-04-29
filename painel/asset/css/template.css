@@ -10,6 +10,10 @@ body{
     height: 40px;
     background-color: #2d3691;
     color:#fff;
+    line-height: 40px;
+    padding-left: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
 }
 
 .topo a {
