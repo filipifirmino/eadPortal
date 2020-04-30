@@ -2,13 +2,7 @@
 
     class Aulas extends model{
 
-        public function marcarAssistido($id){
-            $aluno = $_SESSION['lgaluno'];
-            $sql  = "INSERT INTO historico SET data_viwed = NOW(), id_aluno ='$aluno', id_aula = '$id'";
-            $this->db->query($sql);
-        }
-
-
+       
         public function getAulasDaDisciplina($id){
             $array = array();
             $sql = "SELECT * FROM aulas WHERE id_disciplina = '$id' ORDER BY ordem";
@@ -47,7 +41,7 @@
                 }
 
         }
-
+        /*Stand by*/
         public function getAula($id_aula) {
             $array = array();
             #marcar como visto 
@@ -85,17 +79,7 @@
             return $array;
         }
             
-            public function setDuvida($duvida, $aluno){
-                #query para inserção da duvida no banco de dados.
-                $sql = "INSERT INTO duvidas SET data_duvida = NOW() , duvida = '$duvida', id_aluno ='$aluno'";
-               
-                $this->db->query($sql);
-
-                    
-                       
-                   
-                      
-            }
+            
     }
     
 ?>

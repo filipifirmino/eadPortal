@@ -1,7 +1,8 @@
 <?php
     require 'core/Controller.php';
     require 'core/Model.php';
-   # require 'models/alunos.php';
+    require 'models/disciplinas.php';
+    require 'models/aulas.php';
     require 'models/turmas.php';
     require 'models/usuarios.php';
     
@@ -93,6 +94,79 @@
 
             $this->loadTemplate("turma_add", $dados);
 
+        }
+        public function editar($id){
+            $dados = array(
+
+                'turma' => array(),
+                'disciplinas' => array()
+            );
+
+            if(isset($_POST['nome'])&& !empty($_POST['nome'])){
+                $nome = addslashes($_POST['nome']);
+                $imagem = $_FILES['imagem'];
+
+                $this->db->query("UPDATE turmas SET nome ='$nome' WHERE id='$id' ");
+
+                if(!empty($imagem['temp_name'])){
+                    $md5name = md5(time().rand(0,9999)).'.jpg';
+                        $types = array('image/jpeg','image/jpg', 'image/png');
+                        if(in_array($imagem['type'], $types)){
+                            move_uploaded_file($imagem['tmp_name'],"../painel/asset/image/".$md5name);
+
+                            $this->db->query("UPDATE turmas SET imagem = '$md5name' WHERE id = '$id'");
+
+                            
+                        }
+                }
+            }
+            
+            $disciplinas = new Disciplinas();
+
+            if(isset($_POST['disciplina']) && !empty($_POST['disciplina'])){
+
+                $disciplina = utf8_decode(addslashes($_POST['disciplina']));
+                $disciplinas->addDisciplina($disciplina, $id);
+            }
+           
+            
+            $turmas = new Turmas();
+            $dados['turma'] = $turmas->getTurma($id);
+            $dados['disciplinas'] = $disciplinas->getDisciplinas($id);
+            $this->loadTemplate('turma_edit', $dados);
+        }
+
+        #deletar disciplinas
+        public function del_disciplina($id){
+
+            if(!empty($id)){
+                $id = addslashes($id);
+                $disciplinas = new Disciplinas();
+                
+               $id_turma =  $disciplinas->deleteDisciplina($id);
+                
+                header("Location: ".BASE."home/editar/".$id_turma);
+                exit;
+            }
+            header("Location: ".BASE);
+           
+        }
+
+        public function edit_disciplina($id){
+            $array  = array();
+            $disciplinas = new Disciplinas();
+
+                if(isset($_POST['disciplina'])&& !empty($_POST['disciplina'])){
+                    $nome = utf8_decode(addslashes($_POST['disciplina']));
+                    $id_turma = $disciplinas->updateDisciplina($nome, $id);
+                    header("Location: ".BASE."home/editar/".$id_turma);
+                exit;
+                }
+
+
+            
+            $array['disciplina'] = $disciplinas->getDisciplina($id);
+            $this->loadTemplate('edit_disciplina', $array);
         }
     }
 ?>
