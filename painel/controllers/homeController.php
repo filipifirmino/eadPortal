@@ -123,6 +123,25 @@
             
             $disciplinas = new Disciplinas();
 
+            //usuario adcionou uma nova aula
+            if(isset($_POST['nome_aula']) && !empty($_POST['nome_aula'])){
+                
+                $aula = addslashes($_POST['nome_aula']);
+                $disciplina_aula = addslashes($_POST['disciplina_aula']);
+                $tipo = addslashes($_POST['tipo']);
+                $video = addslashes($_POST['url-video']);
+
+                $aulas = new Aulas();
+
+                $aulas->addAula($id,$disciplina_aula,$aula,$tipo,$video);
+               
+
+
+            }
+
+
+            //usuario adcionou uma nova disciplina
+
             if(isset($_POST['disciplina']) && !empty($_POST['disciplina'])){
 
                 $disciplina = utf8_decode(addslashes($_POST['disciplina']));
@@ -168,5 +187,33 @@
             $array['disciplina'] = $disciplinas->getDisciplina($id);
             $this->loadTemplate('edit_disciplina', $array);
         }
+
+        public function del_aula($id){
+            if(!empty($id)){
+                $id_aula = addslashes($id);
+                $aulas = new Aulas();
+                
+               $id_turma =  $aulas->deleteAula($id);
+                
+                header("Location: ".BASE."home/editar/".$id_turma);
+                exit;
+            }
+            header("Location: ".BASE);
+
+
+
+            
+        }
+
+        public function edit_aula($id_aula){
+            $array = array();
+        }
+
+
+
+
+
+
+
     }
 ?>

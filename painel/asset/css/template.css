@@ -108,3 +108,7 @@ h5{
 .exe_e a{
     text-decoration: none;
 }
+/*Cadastro da aulas*/
+.cadAula input, select{
+    margin-bottom: 15px;
+}

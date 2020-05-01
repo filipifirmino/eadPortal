@@ -78,7 +78,46 @@
 
             return $array;
         }
-            
+            #deletar aula
+            public function deleteAula($id){
+                
+                $sql = "SELECT id_turma FROM aulas WHERE id = '$id'";
+                $sql = $this->db->query($sql);
+
+                if($sql->rowCount() > 0){
+                    $sql = $sql->fetch();
+                    $this->db->query("DELETE FROM aulas WHERE id = '$id'");
+                    $this->db->query("DELETE FROM exercicios WHERE id_aula = '$id'");
+                    $this->db->query("DELETE FROM videos WHERE id_aula = '$id'");
+                    $this->db->query("DELETE FROM historico WHERE id_aula = '$id'");
+                    
+                    return $sql['id_turma'];
+                }
+
+            }
+            #adcionar aula
+
+            public function addAula($id_tuma,$id_disciplina,$nome, $tipo, $video){
+                $sql = "SELECT ordem FROM aulas WHERE id_disciplina = 'id_disciplina' ORDER BY ordem DESC LIMIT 1";
+                $sql = $this->db->query($sql);
+                $ordem= 1;
+                if($sql->rowCount() > 0){
+                    #ordenamento de aula
+                    $sql = $sql->fetch();
+                    $ordem = intval($sql['ordem']);
+                    $ordem++;
+                    }
+                    $sql= "INSERT INTO aulas SET id_disciplina = '$id_disciplina',id_turma = '$id_tuma',ordem = '$ordem', tipo = '$tipo', nome = '$nome'";
+                    $this->db->query($sql);
+                    $id_aula = $this->db->lastInsertId();
+
+                    if($tipo == '1') {
+                        $this->db->query("INSERT INTO video SET id_aula = '$id_aula', nome = '$nome' , url_video = '$video'");
+                    }else{
+                        $this->db->query("INSERT INTO exercicios SET id_aula = '$id_aula' ");
+                    
+                    }
+            }
             
     }
     
