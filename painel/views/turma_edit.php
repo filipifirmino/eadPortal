@@ -25,21 +25,21 @@
 
 <h2>Aulas</h2>
 
-<fieldset>
-    <legend>Adcionar disciplina</legend>
+<fieldset class="cadAulaTop">
+    <legend>Adicionar disciplina</legend>
     <form  method="POST">
-    <input type="text" name="disciplina" id="disciplina" placeholder="Disciplina">
+    <input type="text" name="disciplina" id="disciplina" placeholder="Disciplina" class="input-form">
 
-        <input type="submit" value="Adcionar">
+        <input type="submit" value="Adicionar">
         </form>
 </fieldset>
 
 <fieldset class="cadAula">
     <legend>Adcionar aula</legend>
     <form  method="POST">
-    <input type="text" name="nome_aula" id="aula" placeholder="Titulo ou tema da aula"><br>
+    <input type="text" name="nome_aula" id="aula" placeholder="Titulo ou tema da aula" require=""><br>
     Disciplina:
-    <select name="disciplina_aula" id="selc_disc">
+    <select name="disciplina_aula" id="selc_disc"require>
     <option ></option>
         <?foreach($disciplinas as $materia):?>
             <option value="<?echo $materia['id'];?>"><?echo utf8_encode($materia['nome']);?></option>
@@ -54,18 +54,18 @@
     </select>
     <input type="text" name="url-video" id="url-video" placeholder="url do vídeo ex:/413105710" style="display: none">
 
-        <br/><input type="submit" value="Adcionar"> 
+        <br/><input type="submit" value="Adicionar"> 
         </form>
 </fieldset>
 
 <?foreach($disciplinas as $disciplina):?>
 
-    <h4><?echo utf8_encode($disciplina['nome']) ?><a href="<?echo BASE;?>home/del_disciplina/<?echo $disciplina['id']?>" title="Excluir"><div class="exe">X</div></a>
+    <h4 class="h4"><?echo utf8_encode($disciplina['nome']) ?><a href="<?echo BASE;?>home/del_disciplina/<?echo $disciplina['id']?>" title="Excluir"><div class="exe">X</div></a>
     <a href="<?echo BASE;?>home/edit_disciplina/<?echo $disciplina['id']?>" title="Editar"><div class="exe_e">Editar</div></a>
     </h4>
 
     <?foreach($disciplina['aulas'] as $aula):?>
-            <h5><?echo $aula['nome'] ?><a href="<?echo BASE;?>home/del_aula/<?echo $aula['id']?>" title="Excluir"><div class="exe">X</div></a>  <a href="<?echo BASE;?>home/edit_aula/<?echo $aula['id']?>" title="Editar"><div class="exe_e">Editar</div></a></h5>
+            <h5 class="h5"><?echo $aula['nome'] ?><a href="<?echo BASE;?>home/del_aula/<?echo $aula['id']?>" title="Excluir"><div class="exe">X</div></a>  <a href="<?echo BASE;?>home/edit_aula/<?echo $aula['id']?>" title="Editar"><div class="exe_e">Editar</div></a></h5>
 
 
     <?endforeach?>

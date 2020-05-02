@@ -28,6 +28,20 @@
             }
             return $array;
         }
+        #editar video
+        public function updateAula($id,$nome_video,$url){
+            
+            $this->db->query("UPDATE video SET nome = '$nome_video', url_video = '$url' WHERE id_aula = '$id'");
+            return $this-> getTurmaDeAula($id);
+        }
+        #editar questionario
+        public function updateQuestionario($id,$pergunta,$op1,$op2,$op3,$op4,$op5,$resposta){
+                    
+            $this->db->query("UPDATE exercicios SET pergunta = '$pergunta', op1 = '$op1', op2 = '$op2',op3 = '$op3',op4 = '$op4',op5 = '$op5', resposta = '$resposta' WHERE id_aula='$id'");                
+            return $this->getTurmaDeAula($id);
+            
+        }
+
         public function getTurmaDeAula($id_aula){
 
                 $sql = "SELECT id_turma FROM aulas WHERE id = '$id_aula'";
@@ -41,14 +55,10 @@
                 }
 
         }
-        /*Stand by*/
         public function getAula($id_aula) {
             $array = array();
             #marcar como visto 
-
-                $id_aluno = $_SESSION['lgaluno'];
-
-                $sql = "SELECT tipo, (select count(*) from historico where historico.id_aula = aulas.id and historico.id_aluno  = '$id_aluno') as assistido FROM aulas WHERE id ='$id_aula'";
+                $sql = "SELECT tipo FROM aulas WHERE id='$id_aula'";
                 $sql = $this->db->query($sql);
 
             if($sql->rowCount() > 0){
@@ -72,12 +82,15 @@
                     $array['tipo'] = 0; #retorna para o view a informação do tipo de aula 
 
                 }
-                $array['assistido'] = $row['assistido'];
+              
 
             }
 
-            return $array;
+            return $array;  
         }
+        
+  
+        
             #deletar aula
             public function deleteAula($id){
                 
@@ -110,8 +123,8 @@
                     $sql= "INSERT INTO aulas SET id_disciplina = '$id_disciplina',id_turma = '$id_tuma',ordem = '$ordem', tipo = '$tipo', nome = '$nome'";
                     $this->db->query($sql);
                     $id_aula = $this->db->lastInsertId();
-
-                    if($tipo == '1') {
+                    
+                    if($tipo == 1) {
                         $this->db->query("INSERT INTO video SET id_aula = '$id_aula', nome = '$nome' , url_video = '$video'");
                     }else{
                         $this->db->query("INSERT INTO exercicios SET id_aula = '$id_aula' ");
@@ -119,6 +132,7 @@
                     }
             }
             
+           
     }
     
 ?>

@@ -200,13 +200,51 @@
             }
             header("Location: ".BASE);
 
-
-
             
         }
 
-        public function edit_aula($id_aula){
-            $array = array();
+        public function edit_aula($id){
+            $dados = array();
+            $view = 'edit_video';
+            $aulas = new Aulas();
+            
+            #edição do video 
+            if(isset($_POST['nome']) && !empty($_POST['nome'])){
+                
+                $nome_video = addslashes($_POST['nome']);
+                $url = addslashes($_POST['url_video']);
+                                
+                $id_turma = $aulas->updateAula($id,$nome_video,$url);
+                header("Location: ".BASE."home/editar/".$id_turma);
+
+            }
+            #edição do questionario
+            if(isset($_POST['pergunta']) && !empty($_POST['pergunta'])){
+                
+                $pergunta= addslashes($_POST['pergunta']);
+                $op1 = addslashes($_POST['op1']);
+                $op2 = addslashes($_POST['op2']);
+                $op3 = addslashes($_POST['op3']);
+                $op4 = addslashes($_POST['op4']);
+                $op5 = addslashes($_POST['op5']);
+                $resposta = addslashes($_POST['resposta']);
+
+                             
+                $id_turma = $aulas->updateQuestionario($id,$pergunta,$op1,$op2,$op3,$op4,$op5,$resposta);
+                
+                header("Location: ".BASE."home/editar/".$id_turma);
+
+            }
+            
+            $dados['aula']=$aulas->getAula($id);
+
+            if($dados['aula']['tipo'] == '1'){
+                $view = 'edit_video';
+            }else{
+                $view = 'edit_questionario';
+            }
+
+            $this->loadTemplate($view, $dados);
         }
 
 
