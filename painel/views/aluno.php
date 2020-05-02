@@ -27,3 +27,4 @@
     <?endforeach;?>
     
 </table>
+<a href="<?echo BASE;?>" class="voltar"> << Voltar </a>

@@ -56,7 +56,7 @@
         </table>
     </div>
     <div class="cont-alt">
-        <a href="<?echo BASE?>/aluno">
+        <a href="<?echo BASE?>aluno">
           <div class="aluno">
               <div class="imagem">
                   <img src="<?echo BASE?>../painel/asset/image/user.svg" alt="" height="80%" >

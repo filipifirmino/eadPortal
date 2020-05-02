@@ -20,7 +20,7 @@
 
         public function index(){
             $dados = array(
-                'alunos'=>array(),
+                'alunos'=>array()
 
             );
 
@@ -30,5 +30,60 @@
 
             $this->loadTemplate('aluno', $dados);
         }
+
+        public function excluir($id){
+            $sql = "DELETE FROM aluno_turma WHERE id_aluno = '$id'";
+            $this->db->query($sql);
+
+            $sql = "DELETE FROM alunos WHERE id = '$id'";
+            $this->db->query($sql);
+
+            header("Location: ".BASE."aluno");
+        }
+
+        public function adcionar(){
+           $dados = array();
+           
+           if(isset($_POST['nome'])&& !empty($_POST['nome'])){
+                $nome = addslashes($_POST['nome']);
+                $matricula = addslashes($_POST['matricula']);
+                $senha = md5($_POST['senha']);
+
+                $this->db->query("INSERT INTO alunos SET nome = '$nome', matricula = '$matricula', senha = '$senha'");
+                header ('Location: '.BASE.'aluno');
+
+           }
+           $this->loadTemplate('alunos_add',$dados);
+        }
+
+        public function editar($id){
+            $dados = array(
+
+                'aluno'=>array(),
+                'disciplina' => array()
+            );
+            if(isset($_POST['nome']) && !empty($_POST['nome'])){
+                $nome = addslashes($_POST['nome']);
+                $matricula = addslashes($_POST['matricula']);
+                $senha = addslashes($_POST['senha']);
+                $turma = addslashes($_POST['turmas']);
+                
+                #modificar quando adcionar para turmas e cursos 31:44 - 14
+
+                $this->db->query("UPDATE alunos SET nome = '$nome' , matricula = '$matricula', senha = '$senha' WHERE id = '$id'");
+                $this->db->query("UPDATE aluno_turma SET id_turma = '$turma' WHERE id_aluno = '$id'");
+
+
+            }   
+            
+            $alunos = new Alunos();
+            $turmas = new Turmas();
+            $dados['aluno'] = $alunos->getAluno($id);
+            $dados['turmas'] = $turmas->getTurmas();
+            $dados['inscrito'] = $turmas->getTurmasInscrito($id);
+            
+            $this->loadTemplate('alunos_edit',$dados);
+        }
+        
     }
 ?>

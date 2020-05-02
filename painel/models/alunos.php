@@ -13,5 +13,19 @@ class Alunos extends model{
 
         return $array;
     }
-}
+
+    public function getAluno($id){
+        $array = array();
+
+        $sql  = "SELECT * FROM alunos WHERE id = '$id'";
+        $sql = $this->db->query($sql);
+
+        if($sql->rowCount() > 0){
+            $array = $sql->fetch();
+        }
+        return $array;
+    }
+
+   
+}   
 ?>

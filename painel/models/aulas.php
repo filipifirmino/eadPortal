@@ -96,12 +96,12 @@
                 
                 $sql = "SELECT id_turma FROM aulas WHERE id = '$id'";
                 $sql = $this->db->query($sql);
-
+                
                 if($sql->rowCount() > 0){
                     $sql = $sql->fetch();
                     $this->db->query("DELETE FROM aulas WHERE id = '$id'");
                     $this->db->query("DELETE FROM exercicios WHERE id_aula = '$id'");
-                    $this->db->query("DELETE FROM videos WHERE id_aula = '$id'");
+                    $this->db->query("DELETE FROM video WHERE id_aula = '$id'");
                     $this->db->query("DELETE FROM historico WHERE id_aula = '$id'");
                     
                     return $sql['id_turma'];

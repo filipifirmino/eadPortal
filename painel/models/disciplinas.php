@@ -45,7 +45,7 @@
 
             if($sql->rowCount()> 0){
                 $sql = $sql->fetch();
-                $this->db->query("DELETE FROM disciplina WHERE id = '$id'");
+                $this->db->query("DELETE FROM disciplina WHERE disciplina.id = '$id'");
 
                 return $sql['id_turma'];
 
