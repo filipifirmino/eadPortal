@@ -50,6 +50,8 @@
                 $senha = md5($_POST['senha']);
 
                 $this->db->query("INSERT INTO alunos SET nome = '$nome', matricula = '$matricula', senha = '$senha'");
+                $id = $this->db->lastInsertId();
+                $this->db->query("INSERT INTO aluno_turma SET id_aluno = $id");
                 header ('Location: '.BASE.'aluno');
 
            }
