@@ -31,7 +31,6 @@
                 $array = $sql->fetch();
             }
             
-
             return $array;
         }
 

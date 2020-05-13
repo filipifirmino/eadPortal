@@ -4,7 +4,7 @@
 
 </div>
 <div class="left-aulas">
-   <?php foreach($disciplinas as $disciplina):    ?>
+   <?php foreach($disciplinas as $disciplina):?>
     <div class="disciplina"> <?php echo utf8_encode( $disciplina['nome']) ; ?></div>
         <?php foreach($disciplina['aulas'] as $aula):?>
                 <a href="<?php echo BASE;?>turmas/aula/<?php echo $aula['id'];?>">

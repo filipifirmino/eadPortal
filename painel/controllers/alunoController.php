@@ -32,11 +32,9 @@
         }
 
         public function excluir($id){
-            $sql = "DELETE FROM aluno_turma WHERE id_aluno = '$id'";
-            $this->db->query($sql);
 
-            $sql = "DELETE FROM alunos WHERE id = '$id'";
-            $this->db->query($sql);
+            $alunos = new Alunos;
+            $alunos->deleteAluno($id);
 
             header("Location: ".BASE."aluno");
         }
@@ -48,10 +46,10 @@
                 $nome = addslashes($_POST['nome']);
                 $matricula = addslashes($_POST['matricula']);
                 $senha = md5($_POST['senha']);
+                
+                $alunos = new Alunos();
 
-                $this->db->query("INSERT INTO alunos SET nome = '$nome', matricula = '$matricula', senha = '$senha'");
-                $id = $this->db->lastInsertId();
-                $this->db->query("INSERT INTO aluno_turma SET id_aluno = $id");
+                $alunos->addAluno($nome,$matricula,$senha);
                 header ('Location: '.BASE.'aluno');
 
            }
@@ -64,21 +62,20 @@
                 'aluno'=>array(),
                 'disciplina' => array()
             );
+
+            $alunos = new Alunos();
+
             if(isset($_POST['nome']) && !empty($_POST['nome'])){
                 $nome = addslashes($_POST['nome']);
                 $matricula = addslashes($_POST['matricula']);
                 $senha = addslashes($_POST['senha']);
                 $turma = addslashes($_POST['turmas']);
                 
-                #modificar quando adcionar para turmas e cursos 31:44 - 14
 
-                $this->db->query("UPDATE alunos SET nome = '$nome' , matricula = '$matricula', senha = '$senha' WHERE id = '$id'");
-                $this->db->query("UPDATE aluno_turma SET id_turma = '$turma' WHERE id_aluno = '$id'");
-
-
+                $alunos->updataAlunos($id,$nome,$matricula,$senha,$turma);
             }   
             
-            $alunos = new Alunos();
+           
             $turmas = new Turmas();
             $dados['aluno'] = $alunos->getAluno($id);
             $dados['turmas'] = $turmas->getTurmas();
