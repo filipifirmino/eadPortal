@@ -50,7 +50,7 @@
     <select name="tipo" id="tipo" onchange="mostraCampoUrl(this.value)" onchange="mostraCampoUrl(this.value);">
         <option ></option>
         <option value="1" >Vídeo</option>
-        <option value="0">Quetionario</option>
+        <option value="0">Questionario</option>
     </select>
     <input type="text" name="url-video" id="url-video" placeholder="url do vídeo ex:/413105710" style="display: none">
 
