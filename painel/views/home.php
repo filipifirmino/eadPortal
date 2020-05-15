@@ -59,7 +59,7 @@
         <a href="<?echo BASE?>aluno">
           <div class="aluno">
               <div class="imagem">
-                  <img src="<?echo BASE?>../painel/asset/image/user.svg" alt="" height="80%" >
+                  <img src="<?echo BASE?>../painel/asset/image/user.svg" alt="" height="30px" >
               </div>
               <div class="legenda" height="20%">
                     Adicionar alunos

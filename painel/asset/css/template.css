@@ -190,21 +190,22 @@ h2{
 .aluno{
     display: flex;
     flex-direction: column;
-    width: 250px;
-    height: 300px;
+    width: 100px;
+    height: 125px;
     border-radius:5px;
     border:none;
-    background-color: #DDD;
+    background-color: #829FD9;
     margin-left: 20px;
     box-shadow: 1px 2px 5px rgba(0,0,0.5);
 }
 .legenda{
     text-align: center;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 15pt;
-    border-top:1px solid #2d3691;
-    line-height: 40px;
-    height: 40px;
+    color:#230A59;
+    font-size: 9pt;
+    border-top:1px solid #917f2d;
+    margin-top:10px;
+    
 }
 .imagem{
     display: flex;
@@ -214,8 +215,8 @@ h2{
    
 }
 .imagem img{
-    width: 150px;
-    height: 150px;
+    width: 80x;
+    height: 80px;
 }
 /*Cadastro do aluno*/
 .aluno_cad{
