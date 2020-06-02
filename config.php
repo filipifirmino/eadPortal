@@ -7,16 +7,16 @@
     $config = array();
 
     if(ENVIRONMENT == 'development') {#dev
-            $config['dbname'] = "ead_anchieta";
+            $config['dbname'] = "data_base";
             $config['host'] = 'localhost';
             $config['dbuser'] = 'root';
-            $config['dbpass'] = 'dijital123';
+            $config['dbpass'] = 'Pass';
     }else{#produção
 
-            $config['dbname'] = 'ead_anchieta';
+            $config['dbname'] = 'data_base';
             $config['host'] = 'localhost';
             $config['dbuser'] = 'root';
-            $config['dbpass'] = 'dijital123';
+            $config['dbpass'] = 'pass';
     }
 
 
